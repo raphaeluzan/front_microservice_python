@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- ======================= head ========================== -->
+<title>Titre : {{ title }}</title>
+
+
+<div class="topnav">
+<a href="{{ url_for('info') }}">Vue global</a>
+<a href="{{ url_for('formulaire') }}">recherche compte</a>
+<a href="{{ url_for('paramget') }}?login=toto">retirer de l'argent</a>
+<a href="{{ url_for('paramgetadd') }}?login=toto">déposer de l'argent</a>
+<a href="{{ url_for('data_json') }}">supprimer un compte</a>
+<a href="{{ url_for('data_json_creation') }}">créer un compte</a>
+<a href="{{ url_for('virement') }}">operations</a>
+<a href="{{ url_for('faire_virement') }}">effectuer un virement</a>
+<a href="{{ url_for('formulaire2') }}">recherche operation</a>
+<a href="{{ url_for('retrait_depot') }}">retrait/Depot</a>
+<a href="{{ url_for('modif_ope') }}">modifier Operation</a>
+
+
+ </div>
+ <center><img src="static/header.png" alt="header hello bank"></center>
+</head>
+
+<body>
+<div class="content">
+<hr/>
+{{ data }}
+
+<hr/>
+
+{{ info }}
+
+
+{{ delete_id }}
+
+</div>
+
+<div class="footer">
+<footer>
+	<p>
+<a href="#">Mentions légales</a>&nbsp;&nbsp;&nbsp;
+ 
+<a href="#">Données personnelles</a>&nbsp;&nbsp;&nbsp;
+ 
+<a href="#">Plan du site</a>&nbsp;&nbsp;&nbsp;
+ 
+<a href="#">Conditions et Réglementations</a>&nbsp;&nbsp;&nbsp;
+ 
+<a href="#">Loi Eckert</a>&nbsp;&nbsp;&nbsp;
+ 
+<a href="#">Cookies</a>&nbsp;&nbsp;&nbsp;
+ 
+<a href="#">Contact</a>
+
+</p>
+  <p>Posted by: Aaron & Raphael  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    Contact information: <a href="mailto:raphael.aaron@gmail.com">
+  raphael.uzan.aa@gmail.com</a></p>
+
+</footer>
+</body>
+</html>

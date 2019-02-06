@@ -115,6 +115,28 @@ def modif_ope():
     """
     return TPL("default.html", title="Suppresion d'un compte", delete_id=Markup(data), info=Markup(str(json2html.convert(json = r.text))))
 
+@app.route('/modif_com')
+def modif_com():
+    r = requests.get('http://' + URL + '/compte/all')   
+    data = """\
+    exemple d'entree :         {
+        "iban": "FR7630004000031234567cdc890143",
+        "typedecompte": "courant",
+        "interet": 0,
+        "frais": "gratuit",
+        "solde": 100
+    }
+    Votre nouveau compte en json
+    <form action="modifier_ope" method="post">
+    Json contenant les informations du compte a modifier
+    <input type="text" name="compte_id"/><br/>
+    identifiant du compte a modifier
+    <input type="text" name="idd"/><br/>
+    <input type="submit"/>
+    </form>
+    """
+    return TPL("default.html", title="Suppresion d'un compte", delete_id=Markup(data), info=Markup(str(json2html.convert(json = r.text))))
+
 
 @app.route('/formulaire')
 def formulaire():
@@ -284,6 +306,15 @@ def modifier_ope():
     headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
     r = requests.put('http://' + URL2 + '/operation/MAJOperation/' + idd , data = compte_id,headers=headers)
     res = requests.get('http://' + URL2 + '/operation/all')
+    return TPL("default.html", title="Creation compte", data=Markup(str(json2html.convert(json = res.text))))
+
+@app.route('/modifier_com', methods=["POST"])
+def modifier_com():
+    compte_id = flask.request.form['compte_id']
+    idd = flask.request.form['idd']
+    headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
+    r = requests.put('http://' + URL + '/compte/MAJCompte/' + idd , data = compte_id,headers=headers)
+    res = requests.get('http://' + URL + '/compte/all')
     return TPL("default.html", title="Creation compte", data=Markup(str(json2html.convert(json = res.text))))
 
 

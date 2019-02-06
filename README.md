@@ -1,11 +1,25 @@
 # front_microservice_python
 
-1. verifier de bien avoir python et pip install
 
---> lancement direct : python3 app.py
+## Cloner le projet
 
---> lancement avec docker :
+```
+git clone https://github.com/raphaeluzan/front_microservice_python
+```
 
+## Dockerisation
+
+Construction de l'image Docker à partir du Dockerfile :
+```
 docker build -t my_docker_flask:latest .
 
+```
+
+Lancement de notre image (i.e. de l'application) dans un conteneur :
+```
 docker run -d -p 5000:5000 my_docker_flask:latest
+```
+Pour information notre docker se lance sur l'IP 192.168.99.100.
+
+
+

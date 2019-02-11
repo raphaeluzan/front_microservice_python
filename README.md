@@ -12,7 +12,6 @@ git clone https://github.com/raphaeluzan/front_microservice_python
 Construction de l'image Docker à partir du Dockerfile :
 ```
 docker build -t my_docker_flask:latest .
-
 ```
 
 Lancement de notre image (i.e. de l'application) dans un conteneur :

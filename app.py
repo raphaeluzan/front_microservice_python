@@ -10,8 +10,8 @@ import socket
 TPL = flask.render_template # Pour éviter de toujours taper flask.render_template...
  
 app = flask.Flask(__name__, template_folder='.')
-URL = 'localhost:8000' #'172.20.10.2:8000'
-URL2 = 'localhost:8001' #'172.20.10.2:8001'
+URL = '192.168.99.100:8000' 
+URL2 = '192.168.99.100:8001' 
 @app.route('/')
 def info():
 	data = "Bonjour Visiteur bienvenue sur l'application de gestion banquaire"
